@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#c3c3c3"
+    tools:context="com.example.samsung.mypic1.Alert">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/glb"
+        android:id="@+id/logo"
+        android:layout_alignEnd="@+id/nabdhi"
+        android:layout_marginEnd="99dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NABDHI"
+        android:textSize="4mm"
+        android:id="@+id/nabdhi"
+        android:layout_marginBottom="13dp"
+        android:layout_alignBottom="@+id/logo"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="450px"
+        android:layout_height="450px"
+        app:srcCompat="@drawable/audio"
+        android:id="@+id/alarmPic"
+        android:layout_marginTop="26dp"
+        android:layout_alignTop="@+id/nabdhi"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Location Status"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:layout_width="1000dp"
+        android:layout_height="60dp"
+        android:id="@+id/Location"
+        android:layout_toRightOf="@+id/LocationPic"
+        android:background="#c3c3c3"
+        android:layout_below="@+id/contacts"
+        />
+
+    <Button
+        android:text="   Call Me"
+        android:layout_width="1000dp"
+        android:layout_height="60dp"
+        android:id="@+id/CallMe"
+        android:background="#c3c3c3"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:layout_toRightOf="@+id/CallPic"
+        android:layout_below="@+id/Location"
+         />
+
+    <Button
+        android:text="Contacts From ..."
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:layout_width="1000dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="17dp"
+        android:id="@+id/contacts"
+        android:background="#c3c3c3"
+        android:layout_toRightOf="@+id/LocationPic"
+        android:layout_below="@+id/Notifing"
+         />
+
+    <ImageView
+        android:layout_width="100px"
+        android:layout_height="100px"
+        app:srcCompat="@drawable/location"
+        android:id="@+id/LocationPic"
+        android:layout_below="@+id/contacts"
+        android:layout_alignBottom="@+id/Location" />
+
+
+    <TextView
+        android:text="Notifying Emergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="2.6"
+        android:scaleY="1.6"
+        android:id="@+id/Notifing"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/alarmPic"
+        android:layout_alignStart="@+id/alarmPic"
+        android:layout_marginTop="9dp" />
+
+    <ImageView
+        android:layout_width="70px"
+        android:layout_height="70px"
+        app:srcCompat="@drawable/phone"
+        android:id="@+id/CallPic"
+        android:layout_marginBottom="19dp"
+        android:layout_alignBottom="@+id/CallMe"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="alert"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_marginEnd="14dp"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/alarPic" />
+
+    <TextView
+        android:text="Measure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/Measure"
+        android:layout_alignTop="@+id/textView6" />
+
+    <Button
+
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:id="@+id/escorts"
+        android:background="@drawable/user"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginStart="10dp"
+        android:layout_above="@+id/textView5"
+        android:layout_toEndOf="@+id/LocationPic" />
+
+    <Button
+
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/alarPic"
+        android:background="@drawable/alert122"
+        android:layout_marginEnd="17dp"
+        android:layout_alignBottom="@+id/Measure"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/Measure"
+        android:background="@drawable/m2"
+        android:backgroundTint="#FFFFFF"
+        android:layout_above="@+id/textView4"
+        android:layout_alignEnd="@+id/nabdhi" />
+
+    <TextView
+        android:text="ecscorts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/escorts" />
+
+</RelativeLayout>
