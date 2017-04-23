@@ -14,8 +14,10 @@ public class HomePage extends AppCompatActivity {
 
     public void createAccount(View view){
         Intent intent = new Intent(this,Register.class);
+        startActivity(intent);
     }
     public void login(View view){
         Intent intent = new Intent(this,Login.class);
+        startActivity(intent);
     }
 }
