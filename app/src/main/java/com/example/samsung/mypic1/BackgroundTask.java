@@ -29,7 +29,7 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
     protected String doInBackground(String... voids) {
 
         String reg_url = "http://kholood.heliohost.org/Register.php";
-
+        String login_url="http://kholood.heliohost.org/Login.php";
         String method = voids[0];
         URL url;
         HttpURLConnection httpURLConnection;
@@ -37,14 +37,15 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
         BufferedWriter bufferedWriter;
         String data;
         InputStream is;
+        BufferedReader bufferedReader;
+        String result = "";
+        String line;
 
         if(method.equalsIgnoreCase("register".trim())){
 
             String name = voids[1];
             String email = voids[2];
             String password = voids[3];
-            String confPassword = voids[4];
-
 
 
             try {
@@ -58,17 +59,15 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
 
                 data = URLEncoder.encode("name","UTF-8")+"="+URLEncoder.encode(name,"UTF-8")+"&"+
                         URLEncoder.encode("email","UTF-8")+"="+URLEncoder.encode(email,"UTF-8")+"&"+
-                        URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");//+"&"+
-                 //       URLEncoder.encode("confPassword","UTF-8")+"="+URLEncoder.encode(confPassword,"UTF-8");
+                        URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 os.close();
 
                 InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
-                String result="";
-                String line;
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+
                 while((line = bufferedReader.readLine())!= null) {
                     result += line;
                     break;
@@ -83,6 +82,39 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
                 e.printStackTrace();
             }
 
+        }
+        if(method.equalsIgnoreCase("login".trim())){
+
+            String log_name = voids[1];
+            String log_password = voids[2];
+            try {
+
+                url = new URL(login_url);
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                os = httpURLConnection.getOutputStream();
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+                String post_data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(log_name, "UTF-8") + "&"
+                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(log_password, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                os.close();
+                is = httpURLConnection.getInputStream();
+                bufferedReader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
+
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                is.close();
+                httpURLConnection.disconnect();
+                return result.trim();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
