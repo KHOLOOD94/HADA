@@ -26,8 +26,8 @@
         android:layout_height="100px"
         app:srcCompat="@drawable/person"
         android:id="@+id/imageViewUser"
-        android:layout_above="@+id/editTextEmail"
-        android:layout_toStartOf="@+id/editTextUsername"
+        android:layout_above="@+id/email"
+        android:layout_toStartOf="@+id/Username"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="6dp" />
 
@@ -37,7 +37,7 @@
         android:background="#FFFFFF"
         android:inputType="text|date"
         android:ems="10"
-        android:id="@+id/editTextUsername"
+        android:id="@+id/Username"
         android:hint=" User name"
         android:layout_below="@+id/imageViewLogin"
         android:layout_centerHorizontal="true"
@@ -58,10 +58,10 @@
         android:background="#FFFFFF"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editTextPassword"
+        android:id="@+id/password"
         android:hint=" Password"
         android:layout_alignTop="@+id/imageView9Password"
-        android:layout_alignStart="@+id/editTextEmail" />
+        android:layout_alignStart="@+id/email" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -69,10 +69,10 @@
         android:background="#FFFFFF"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editTextConfirmPassword"
+        android:id="@+id/confirmPassword"
         android:hint=" comfirm password"
         android:layout_below="@+id/imageView9Password"
-        android:layout_alignStart="@+id/editTextPassword"
+        android:layout_alignStart="@+id/password"
         android:layout_marginTop="12dp" />
 
     <ImageView
@@ -80,7 +80,7 @@
         android:layout_height="150px"
         app:srcCompat="@drawable/key"
         android:id="@+id/imageViewPassword1"
-        android:layout_alignTop="@+id/editTextConfirmPassword"
+        android:layout_alignTop="@+id/confirmPassword"
         android:layout_toStartOf="@+id/buttonCreateAcc" />
 
     <EditText
@@ -89,11 +89,11 @@
         android:background="#FFFFFF"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editTextEmail"
+        android:id="@+id/email"
         android:hint=" Email"
         android:layout_marginTop="32dp"
-        android:layout_below="@+id/editTextUsername"
-        android:layout_alignStart="@+id/editTextUsername" />
+        android:layout_below="@+id/Username"
+        android:layout_alignStart="@+id/Username" />
 
     <ImageView
         android:layout_width="250px"
@@ -101,7 +101,7 @@
         app:srcCompat="@drawable/email1"
         android:id="@+id/imageViewEmail"
         android:layout_below="@+id/imageViewUser"
-        android:layout_toStartOf="@+id/editTextEmail"
+        android:layout_toStartOf="@+id/email"
         android:layout_marginTop="25dp" />
 
     <TextView

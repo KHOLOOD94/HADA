@@ -47,7 +47,7 @@
         android:background="#FFFFFF"
         android:inputType="text|date"
         android:ems="10"
-        android:id="@+id/editTextUsername"
+        android:id="@+id/Username"
         android:hint=" User name"
         android:layout_below="@+id/imageViewLogin"
         android:layout_centerHorizontal="true"
@@ -59,8 +59,8 @@
         app:srcCompat="@drawable/person"
         android:id="@+id/imageViewUser"
         android:layout_marginEnd="24dp"
-        android:layout_alignTop="@+id/editTextUsername"
-        android:layout_toStartOf="@+id/editTextUsername" />
+        android:layout_alignTop="@+id/Username"
+        android:layout_toStartOf="@+id/Username" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
         android:inputType="date"
         android:ems="10"
         android:background="#FFFFFF"
-        android:id="@+id/editTextPassword"
+        android:id="@+id/password"
         android:hint=" Password"
         android:layout_alignTop="@+id/imageViewKey"
         android:layout_toEndOf="@+id/imageViewUser"

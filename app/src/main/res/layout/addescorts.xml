@@ -132,7 +132,7 @@
         android:background="#FFFFFF"
         android:hint=" email"
         android:ems="10"
-        android:id="@+id/editTextEmail"
+        android:id="@+id/email"
         android:layout_alignTop="@+id/imageViewEmail"
         android:layout_alignStart="@+id/editTextName"
         android:layout_marginTop="9dp" />
@@ -177,5 +177,5 @@
         android:layout_marginTop="9dp"
         android:id="@+id/editTextPhone"
         android:layout_below="@+id/imageViewEmail"
-        android:layout_alignStart="@+id/editTextEmail" />
+        android:layout_alignStart="@+id/email" />
 </RelativeLayout>
