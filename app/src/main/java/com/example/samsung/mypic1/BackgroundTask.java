@@ -4,7 +4,6 @@ package com.example.samsung.mypic1;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -107,6 +106,7 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
 
                 while ((line = bufferedReader.readLine()) != null) {
                     result += line;
+                    break;
                 }
                 bufferedReader.close();
                 is.close();
