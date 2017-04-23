@@ -8,6 +8,6 @@ public class Alert extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.Alert);
+        setContentView(R.layout.alert);
     }
 }
