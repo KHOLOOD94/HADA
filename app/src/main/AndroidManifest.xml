@@ -20,7 +20,7 @@
         <activity android:name=".AddEscorts" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".HomePage"></activity>
+        <activity android:name=".HomePage"/>
     </application>
 
 </manifest>
