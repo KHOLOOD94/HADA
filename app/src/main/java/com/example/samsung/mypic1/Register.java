@@ -16,7 +16,7 @@ public class Register extends AppCompatActivity {
         e_name = (EditText) findViewById(R.id.Username);
         e_email = (EditText) findViewById(R.id.email);
         e_password = (EditText) findViewById(R.id.password);
-        e_confPassword =(EditText) findViewById(R.id.confirmPassword)
+        e_confPassword =(EditText) findViewById(R.id.confirmPassword);
 
     }
 
