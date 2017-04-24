@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My pic1</string>
     <string name="login">login</string>
-    <string name="logo">application logo</string>
     <string name="create_accounte">Create Accounte</string>
 </resources>
