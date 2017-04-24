@@ -33,7 +33,7 @@
         android:scaleY="1.5"
         android:text="@string/login"
         android:textColor="#d22222"
-        android:textSize="23sp"
+        android:textSize="@dimen/landViewText"
         android:layout_marginStart="252dp"
         />
     <Button
@@ -45,7 +45,7 @@
         android:scaleY="1.5"
         android:text="@string/create_accounte"
         android:textColor="#d22222"
-        android:textSize="23sp"
+        android:textSize="@dimen/landViewText"
         android:layout_below="@+id/buttonLogin"
         android:layout_alignStart="@+id/buttonLogin"
         android:layout_marginTop="20dp"
