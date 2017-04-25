@@ -3,4 +3,8 @@
     <string name="login">login</string>
     <string name="logo">application logo</string>
     <string name="create_accounte">Create Accounte</string>
+    <string name="loginPic">Login Image</string>
+    <string name="enter_username">Enter username</string>
+    <string name="password">Password</string>
+    <string name="login_">Login</string>
 </resources>
