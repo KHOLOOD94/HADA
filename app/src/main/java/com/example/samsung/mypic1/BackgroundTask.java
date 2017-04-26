@@ -12,13 +12,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class BackgroundTask extends AsyncTask<String ,Void , String> {
+class BackgroundTask extends AsyncTask<String ,Void , String> {
 
-    Context cont;
+    private Context cont;
     BackgroundTask(Context c) {
 
         this.cont = c;
@@ -73,16 +72,13 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
                 InputStream inputStream = httpURLConnection.getInputStream();
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
 
-                while((line = bufferedReader.readLine())!= null) {
+                if((line = bufferedReader.readLine())!= null) {
                     result += line;
-                    break;
                 }
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
                 return result;
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -110,9 +106,8 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
                 is = httpURLConnection.getInputStream();
                 bufferedReader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
 
-                while ((line = bufferedReader.readLine()) != null) {
+                if ((line = bufferedReader.readLine()) != null) {
                     result += line;
-                    break;
                 }
                 bufferedReader.close();
                 is.close();
@@ -145,9 +140,8 @@ public class BackgroundTask extends AsyncTask<String ,Void , String> {
                 is = httpURLConnection.getInputStream();
                 bufferedReader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
 
-                while ((line = bufferedReader.readLine()) != null) {
+               if ((line = bufferedReader.readLine()) != null) {
                     result += line;
-                    break;
                 }
                 bufferedReader.close();
                 is.close();
