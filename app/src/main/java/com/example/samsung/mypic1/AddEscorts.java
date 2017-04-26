@@ -22,7 +22,10 @@ public class AddEscorts extends AppCompatActivity {
         String name = esc_name.getText().toString();
         String phone = esc_phone.getText().toString();
 
+        String method = "AddEscorts";
 
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method,name,phone);
 
     }
 }
