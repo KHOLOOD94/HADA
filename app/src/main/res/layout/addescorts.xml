@@ -53,24 +53,6 @@
         android:layout_marginTop="330dp"
         android:layout_centerHorizontal="true"/>
 
-    <ImageView
-        android:contentDescription="email picture"
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        app:srcCompat="@drawable/email1"
-        android:id="@+id/imageViewEmail"
-        android:layout_marginTop="390dp"
-        android:layout_marginStart="50dp"/>
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:background="#FFFFFF"
-        android:inputType="textEmailAddress"
-        android:hint=" Enter email"
-        android:ems="10"
-        android:layout_marginTop="390dp"
-        android:id="@+id/editTextEnail"
-        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,7 +63,7 @@
         android:ems="10"
         android:id="@+id/editTextPhone"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp" />
+        android:layout_marginTop="390dp" />
 
 
     <ImageView
@@ -90,16 +72,16 @@
         android:layout_height="35dp"
         app:srcCompat="@drawable/mobilepic"
         android:id="@+id/imageViewPhone"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="390dp"
         android:layout_marginStart="50dp"
          />
 
     <Button
-        android:id="@+id/buttonCreateAcc"
+        android:id="@+id/buttonAddEscorts"
         android:layout_width="175dp"
         android:layout_height="35dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="450dp"
         android:onClick="addEscorts"
         android:scaleX="1.3"
         android:scaleY="1.2"
