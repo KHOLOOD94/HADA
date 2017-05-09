@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My pic1</string>
+    <string name="app_name">Heart Attacks Detector</string>
     <string name="login">login</string>
     <string name="logo">application logo</string>
     <string name="create_accounte">Create Accounte</string>
