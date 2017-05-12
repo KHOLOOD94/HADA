@@ -50,7 +50,7 @@ public class Alert extends AppCompatActivity {
             location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
 
-            position.setText("Longtitude: "+Double.toString(location.getLongitude())+ " ,Latitude: "+Double.toString(location.getLatitude()));
+            position.setText("Longtitude: "+Double.toString(location.getLongitude())+ " Latitude: "+Double.toString(location.getLatitude()));
             progressDialog.dismiss();
         }
 
