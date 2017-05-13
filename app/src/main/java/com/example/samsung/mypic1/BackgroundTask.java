@@ -38,7 +38,6 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         String reg_url = "http://kholood.heliohost.org/Register.php";
         String login_url = "http://kholood.heliohost.org/Login.php";
         String relative_url = "http://kholood.heliohost.org/AddEscort.php";
-        String relative_no_url = "http://kholood.heliohost.org/json.php";
         //////////////////////////////////////////////////////////////////
         String method = voids[0];
         URL url;
@@ -157,35 +156,6 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 e.printStackTrace();
             }
         }
-        if (method.equalsIgnoreCase("relativeNumber".trim())) {
-
-            try {
-                url = new URL(relative_no_url);
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-                is = httpURLConnection.getInputStream();
-                bufferedReader = new BufferedReader(new InputStreamReader(is));
-
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ((line = bufferedReader.readLine()) != null) {
-
-                    stringBuilder.append(line + "\n");
-
-                }
-
-                bufferedReader.close();
-                is.close();
-                httpURLConnection.disconnect();
-
-                displayNumber(stringBuilder.toString().trim());
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-
-            }
-        }
         return null;
     }
 
@@ -197,15 +167,5 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
     @Override
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
-    }
-
-    protected void displayNumber(String res) {
-
-        t = (TextView)((Alert)cont).findViewById(R.id.CallMe);
-        String JSON_STRING = res;
-
-        String[] s = JSON_STRING.split("\"relative_phone_no\":\"");
-        String[] ss = s[1].split("\"");
-        t.setText(ss[0]);
     }
 }
