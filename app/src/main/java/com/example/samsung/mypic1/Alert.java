@@ -24,6 +24,8 @@ import java.net.URL;
 public class Alert extends AppCompatActivity {
     static final long meter = 1;
     static final long milliseconds = 1000;
+    ProgressDialog progressDialog = null;
+    Context context = null;
     String json_string;
     String JSON_STRING;
 
@@ -47,9 +49,6 @@ public class Alert extends AppCompatActivity {
 
     }
 
-    ProgressDialog progressDialog = null;
-    Context context = null;
-
     protected void findLocation(){
 
         context = this;
@@ -58,7 +57,6 @@ public class Alert extends AppCompatActivity {
         progressDialog.setMessage("Getting last location");
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},0);
             return;
