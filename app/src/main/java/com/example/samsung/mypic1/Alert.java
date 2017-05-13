@@ -24,10 +24,6 @@ import java.net.URL;
 public class Alert extends AppCompatActivity {
     static final long meter = 1;
     static final long milliseconds = 1000;
-    ProgressDialog progressDialog = null;
-    Context context = null;
-    LocationManager locationManager;
-    Location location;
     String json_string;
     String JSON_STRING;
 
@@ -35,67 +31,53 @@ public class Alert extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alert);
-
-      /*  if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},1);
         }
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, milliseconds, meter, new locationlestiner(this));
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-*/
-      // findlocation();
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, milliseconds,meter, new locationlestiner(this));
+         findLocation();
          getRelativeNumber();
     }
 
     public void getRelativeNumber() {
 
-       // String method = "relativeNumber";
-       // BackgroundTask backgroundTask = new BackgroundTask(this);
-       // backgroundTask.execute(method);
-
         new BackgroundTask().execute();
 
     }
-/*
-    public void findlocation() {
+
+    ProgressDialog progressDialog = null;
+    Context context = null;
+
+    protected void findLocation(){
 
         context = this;
         progressDialog = new ProgressDialog(Alert.this);
         progressDialog.show();
         progressDialog.setMessage("Getting last location");
-
-/*        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},1);
-        }
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-       //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, milliseconds,meter, new locationlestiner(this));
-
-        //  Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        TextView position = (TextView) findViewById(R.id.LocationText);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},0);
+            return;
+        }
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        TextView position;
+        position = (TextView) findViewById(R.id.LocationText);
         if (location == null) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},1);
-            }
             location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-            position.setText("Longtitude: "+Double.toString(location.getLongitude())+ " Latitude: "+Double.toString(location.getLatitude()));
+            position.setText("Longtitude: "+Double.toString(location.getLongitude())+"\nLatitude: "+Double.toString(location.getLatitude()));
             progressDialog.dismiss();
         }
-
-
     }
-*/
-/*
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case 1: {
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d("yes","yes");
-
                 } else {
                     Log.d("yes","no");
                     // permission denied, boo! Disable the
@@ -107,8 +89,6 @@ public class Alert extends AppCompatActivity {
             // permissions this app might request
         }
     }
-    */
-
 
     class BackgroundTask extends AsyncTask<Void,Void,String> {
 
