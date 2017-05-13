@@ -30,6 +30,15 @@ public class Alert extends AppCompatActivity {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, milliseconds,meter, new locationlestiner(this));
 
         findlocation();
+        getRelativeNumber();
+    }
+
+    public void getRelativeNumber(){
+
+        String method = "relativeNumber";
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method);
+
     }
 
     public void findlocation(){
