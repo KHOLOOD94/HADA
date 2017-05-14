@@ -67,7 +67,7 @@ public class Alert extends AppCompatActivity {
         if (location == null) {
             location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
             position.setText("Longtitude: "+Double.toString(location.getLongitude())+"\nLatitude: "+Double.toString(location.getLatitude()));
-            progressDialog.dismiss();
+         //   progressDialog.dismiss();
         }
     }
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -90,7 +90,7 @@ public class Alert extends AppCompatActivity {
 
     class BackgroundTask extends AsyncTask<Void,Void,String> {
 
-        String url_string="http://kholood.heliohost.org/json.php";
+        String url_string="http://kholood.heliohost.org/getPhoneNumber.php";
 
         public BackgroundTask() {
         }
