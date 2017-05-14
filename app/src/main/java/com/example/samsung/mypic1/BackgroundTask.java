@@ -3,6 +3,7 @@ package com.example.samsung.mypic1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -161,7 +162,17 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
 
     @Override
     protected void onPostExecute(String result) {
+       Intent intent;
         Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
+
+      if(result.trim().equalsIgnoreCase("Login Success") || result.trim().equalsIgnoreCase("Escort Added")){
+            intent = new Intent(cont,Alert.class);
+            cont.startActivity(intent);
+        }
+        if(result.trim().equalsIgnoreCase("Register Success")){
+            intent = new Intent(cont,AddEscorts.class);
+            cont.startActivity(intent);
+        }
     }
 
     @Override
