@@ -76,14 +76,14 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 bufferedWriter.close();
                 os.close();
 
-                InputStream inputStream = httpURLConnection.getInputStream();
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                is = httpURLConnection.getInputStream();
+                bufferedReader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
 
                 if ((line = bufferedReader.readLine()) != null) {
                     result += line;
                 }
                 bufferedReader.close();
-                inputStream.close();
+                is.close();
                 httpURLConnection.disconnect();
                 return result;
             } catch (IOException e) {
