@@ -15,7 +15,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -24,6 +23,8 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
     private Context cont;
     private TextView t ;
 
+    BackgroundTask(){
+    }
     BackgroundTask(Context c) {
         this.cont = c;
     }
@@ -162,10 +163,13 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
 
     @Override
     protected void onPostExecute(String result) {
-       Intent intent;
         Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
-
-      if(result.trim().equalsIgnoreCase("Login Success") || result.trim().equalsIgnoreCase("Escort Added")){
+       Intent intent;
+      if(result.trim().equalsIgnoreCase("Login Success")){
+            intent = new Intent(cont,Alert.class);
+            cont.startActivity(intent);
+        }
+        if(result.trim().equalsIgnoreCase("Escort Added")){
             intent = new Intent(cont,Alert.class);
             cont.startActivity(intent);
         }

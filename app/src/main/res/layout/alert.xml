@@ -65,7 +65,7 @@
 
 
     <TextView
-        android:text="Location Status..."
+        android:hint="Location Status..."
         android:layout_toEndOf="@id/LocationPic"
         android:layout_marginTop="400dp"
         android:layout_marginStart="20dp"
@@ -144,8 +144,8 @@
         android:layout_height="70dp"
         android:id="@+id/alarPic"
         android:background="@drawable/alert122"
-        android:layout_marginStart="360dp"
-        android:layout_marginTop="597dp"/>
+        android:layout_above="@+id/textView6"
+        android:layout_toEndOf="@+id/alarmPic" />
 
 
 
