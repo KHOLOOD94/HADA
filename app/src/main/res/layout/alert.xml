@@ -110,7 +110,7 @@
         android:layout_alignEnd="@+id/alarPic"
         android:layout_marginEnd="14dp"
         android:textSize="20sp"
-        android:layout_toEndOf="@+id/alarmPic" />
+       />
 
     <Button
 
@@ -129,7 +129,8 @@
         android:id="@+id/alarPic"
         android:background="@drawable/alert122"
         android:layout_above="@+id/textView6"
-        android:layout_toEndOf="@+id/alarmPic" />
+        android:layout_marginStart="300dp"
+        android:layout_marginBottom="10dp"/>
 
 
 
