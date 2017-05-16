@@ -1,11 +1,9 @@
 package com.example.samsung.mypic1;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,18 +19,26 @@ import java.net.URLEncoder;
 class BackgroundTask extends AsyncTask<String ,Void , String> {
 
     private Context cont;
-    private TextView t ;
+    private String method ;
+    private URL url;
+    private HttpURLConnection httpURLConnection;
+    private OutputStream os;
+    private BufferedWriter bufferedWriter;
+    private String data;
+    private InputStream is;
+    private BufferedReader bufferedReader;
+    private String result = "";
+    private String line;
+    private String name ;
+    private String email ;
+    private String password ;
+    private String phone;
 
-    BackgroundTask(){
-    }
+
     BackgroundTask(Context c) {
         this.cont = c;
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
 
     @Override
     protected String doInBackground(String... voids) {
@@ -40,31 +46,18 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         String reg_url = "http://kholood.heliohost.org/Register.php";
         String login_url = "http://kholood.heliohost.org/Login.php";
         String relative_url = "http://kholood.heliohost.org/AddEscort.php";
-        //////////////////////////////////////////////////////////////////
-        String method = voids[0];
-        URL url;
-        HttpURLConnection httpURLConnection;
-        OutputStream os;
-        BufferedWriter bufferedWriter;
-        String data;
-        InputStream is;
-        BufferedReader bufferedReader;
-        String result = "";
-        String line;
-        ///////////////////////////////////////////////////////////////////
+
+        method = voids[0];
+
+        try{
         if (method.equalsIgnoreCase("register".trim())) {
 
-            String name = voids[1];
-            String email = voids[2];
-            String password = voids[3];
+             name = voids[1];
+             email = voids[2];
+             password = voids[3];
 
+                 urlConnection(reg_url);
 
-            try {
-                url = new URL(reg_url);
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                os = httpURLConnection.getOutputStream();
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
 
 
@@ -86,27 +79,20 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 is.close();
                 httpURLConnection.disconnect();
                 return result;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
         }
         if (method.equalsIgnoreCase("login".trim())) {
 
-            String log_name = voids[1];
-            String log_password = voids[2];
-            try {
+            name = voids[1];
+            password = voids[2];
 
-                url = new URL(login_url);
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-                os = httpURLConnection.getOutputStream();
+                urlConnection(login_url);
+
+
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                String post_data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(log_name, "UTF-8") + "&"
-                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(log_password, "UTF-8");
-                bufferedWriter.write(post_data);
+                data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&"
+                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 os.close();
@@ -120,27 +106,19 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 is.close();
                 httpURLConnection.disconnect();
                 return result.trim();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
         if (method.equalsIgnoreCase("addEscorts".trim())) {
 
-            String name = voids[1];
-            String phone = voids[2];
-            try {
+            name = voids[1];
+            phone = voids[2];
 
-                url = new URL(relative_url);
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
+                urlConnection(relative_url);
                 os = httpURLConnection.getOutputStream();
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                String post_data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&"
+                data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&"
                         + URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(phone, "UTF-8");
-                bufferedWriter.write(post_data);
+                bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 os.close();
@@ -154,9 +132,11 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 is.close();
                 httpURLConnection.disconnect();
                 return result.trim();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+          }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -179,8 +159,14 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         }
     }
 
-    @Override
-    protected void onProgressUpdate(Void... values) {
-        super.onProgressUpdate(values);
+
+    protected void urlConnection(String urlLink) throws Exception {
+
+        url = new URL(urlLink);
+        httpURLConnection = (HttpURLConnection) url.openConnection();
+        httpURLConnection.setRequestMethod("POST");
+        httpURLConnection.setDoOutput(true);
+        os = httpURLConnection.getOutputStream();
+
     }
 }
