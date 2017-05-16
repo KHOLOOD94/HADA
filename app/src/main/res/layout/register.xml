@@ -127,7 +127,7 @@
     <Button
         android:id="@+id/buttonCreateAcc"
         android:layout_width="174dp"
-        android:layout_height="35dp"
+        android:layout_height="38dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="430dp"
         android:onClick="createAccountBut"
