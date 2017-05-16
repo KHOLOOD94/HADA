@@ -27,6 +27,7 @@ public class Alert extends AppCompatActivity {
 
                 ActivityCompat.requestPermissions(this, new String[]{mPermission},
                         REQUEST_CODE_PERMISSION);
+                loc();
 
             }
         } catch (Exception e) {
@@ -48,8 +49,9 @@ public class Alert extends AppCompatActivity {
             // \n is for new line
             Toast.makeText(getApplicationContext(), "Your Location is - \nLat: "
                     + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
-            t.setText("Your Location is - \nLat: "
+            t.setText("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
+
         } else {
             // can't get location
             // GPS or Network is not enabled
