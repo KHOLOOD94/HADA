@@ -16,15 +16,11 @@ public class Alert extends AppCompatActivity {
     // GPSTracker class
     GPSTracker gps;
 
-
-    String json_string;
-    String JSON_STRING;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alert);
-
+        loc();
         try {
             if (ActivityCompat.checkSelfPermission(this, mPermission)
                     != PackageManager.PERMISSION_GRANTED) {
@@ -36,7 +32,7 @@ public class Alert extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        loc();
+
     }
 
     public void loc() {
