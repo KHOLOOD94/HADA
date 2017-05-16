@@ -26,10 +26,9 @@
         android:layout_height="100dp"
         app:srcCompat="@drawable/audio"
         android:id="@+id/alarmPic"
-        android:layout_marginTop="100dp"
-        android:layout_alignTop="@+id/imageViewLogo"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="Alert" />
+        android:contentDescription="Alert"
+        android:layout_below="@+id/imageViewLogo"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="Notifying Emergency"
