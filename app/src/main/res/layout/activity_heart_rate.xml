@@ -17,13 +17,13 @@
         android:layout_height="100dp"
         app:srcCompat="@drawable/logonabdi"
         android:id="@+id/imageViewLogo"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
 
 <EditText
-android:id="@+id/editText"
+android:id="@+id/heartRate"
 android:layout_width="70dp"
 android:layout_height="wrap_content"
 android:layout_marginTop="150dp"
@@ -31,25 +31,26 @@ android:ems="10"
 android:hint="00.0"
 android:inputType="number"
 android:textSize="30sp"
-android:layout_marginStart="130dp" />
+android:layout_marginStart="110dp" />
 
 <TextView
-android:id="@+id/textView3"
+android:id="@+id/bpm"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="bpm"
 android:textSize="30sp"
-android:layout_alignBottom="@+id/editText"
-android:layout_toEndOf="@+id/editText"
+    android:layout_marginTop="170dp"
+android:layout_toEndOf="@+id/heartRate"
 android:layout_marginStart="12dp" />
 
 <ImageView
 android:id="@+id/imageView2"
 android:layout_width="match_parent"
-android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:scaleType="fitXY"
 app:srcCompat="@drawable/d"
-   android:layout_marginTop="300dp" />
+   android:layout_marginTop="250dp"
+    android:contentDescription="ecg" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -79,38 +80,39 @@ app:srcCompat="@drawable/d"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView4"
+        android:id="@+id/measure"
         android:textSize="20sp" />
 
     <TextView
         android:text="Escorts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView4"
+        android:layout_alignTop="@+id/measure"
         android:layout_alignEnd="@+id/escorts"
-        android:id="@+id/textView5"
+        android:id="@+id/escort"
         android:textSize="20sp" />
 
     <TextView
         android:text="Alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
+        android:id="@+id/alert"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/alarPic"
         android:layout_marginEnd="14dp"
+        android:layout_alignTop="@id/measure"
         android:textSize="20sp"
-        android:layout_toEndOf="@+id/alarmPic" />
+        />
 
     <Button
 
         android:layout_width="77dp"
-        android:layout_height="89dp"
+        android:layout_height="100dp"
         android:id="@+id/Measure"
         android:background="@drawable/m2"
         android:backgroundTint="#FFFFFF"
-        android:layout_above="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_above="@+id/measure"
+        android:layout_alignStart="@+id/measure" />
 
     <Button
 
@@ -118,8 +120,10 @@ app:srcCompat="@drawable/d"
         android:layout_height="70dp"
         android:id="@+id/alarPic"
         android:background="@drawable/alert122"
-        android:layout_above="@+id/textView6"
-        android:layout_toEndOf="@+id/alarmPic" />
+        android:layout_above="@+id/alert"
+        android:layout_marginStart="260dp"
+        android:layout_marginBottom="10dp"/>
+
 
 
 </RelativeLayout>
