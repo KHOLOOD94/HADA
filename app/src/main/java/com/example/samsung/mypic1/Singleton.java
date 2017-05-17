@@ -6,7 +6,7 @@ public class Singleton {
 
     private static Singleton instance;
     private String location;
-    private int phone;
+    private String phone;
     private Singleton(){
 
     }
@@ -25,10 +25,10 @@ public class Singleton {
     public String getLocation(){
         return location;
     }
-    public void setPhoneNumber(int p){
+    public void setPhoneNumber(String p){
         phone = p;
     }
-    public int getPhone(){
+    public String getPhone(){
         return phone;
     }
 

@@ -19,19 +19,18 @@ public class EscortProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.escortprofile);
-        new BackgroundTask(this).execute();
+        new B(this).execute();
 
     }
 }
 
 class B extends AsyncTask<Void,Void,String> {
-
-    String json_string;
-    String readPhoneNumber;
-    String readName;
-    Singleton singleton;
-    Context con;
-    String url_string="http://kholood.heliohost.org/getPhoneNumber.php";
+    private String json_string;
+    private String readPhoneNumber;
+    private String readName;
+    private Singleton singleton;
+    private Context con;
+    private String url_string="http://kholood.heliohost.org/getPhoneNumber.php";
 
     public B(Context context) {
         con = context;
@@ -72,19 +71,22 @@ class B extends AsyncTask<Void,Void,String> {
 
     @Override
     protected void onPostExecute(String aVoid) {
+        singleton = Singleton.getInstance();
         TextView name , phone;
-        name = (TextView)((EscortProfile)con).findViewById(R.id.name);
-        phone = (TextView)((EscortProfile)con).findViewById(R.id.phone);
+        name = (TextView)((EscortProfile)con).findViewById(R.id.escortname);
+        phone = (TextView)((EscortProfile)con).findViewById(R.id.phoneNumber);
         readName = aVoid;
         readPhoneNumber = aVoid;
+        String regx1 ="\"relative_name\":\"";
+        String regx2 = "\"relative_phone_no\":\"";
 
-        String regx1 = "\"relative_phone_no\":\"";
-        String regx2 ="\"relative_name\":\"";
+
+
         String nameResult = splitNameAndPhone(readName,regx1);
         name.setText(nameResult);
         String phoneResult = splitNameAndPhone(readPhoneNumber,regx2);
-        phone.setText(phoneResult);
-
+        phone.setText("0"+phoneResult);
+        singleton.setPhoneNumber(phone.getText().toString());
     }
     protected String splitNameAndPhone(String obj,String regx){
         String result="";
