@@ -24,8 +24,8 @@
 
     <ImageView
         android:contentDescription="add escorts pic "
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         app:srcCompat="@drawable/escorts"
         android:id="@+id/imageViewEsc"
         android:layout_alignTop="@+id/imageViewLogo"
@@ -38,8 +38,8 @@
         android:layout_height="35dp"
         app:srcCompat="@drawable/person"
         android:id="@+id/imageViewUser"
-        android:layout_marginTop="330dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginStart="10dp"
         />
 
     <EditText
@@ -50,7 +50,7 @@
         android:ems="10"
         android:hint=" Enter name"
         android:id="@+id/editTextName"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="240dp"
         android:layout_centerHorizontal="true"/>
 
 
@@ -63,7 +63,7 @@
         android:ems="10"
         android:id="@+id/editTextPhone"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="390dp" />
+        android:layout_marginTop="290dp" />
 
 
     <ImageView
@@ -72,8 +72,8 @@
         android:layout_height="35dp"
         app:srcCompat="@drawable/mobilepic"
         android:id="@+id/imageViewPhone"
-        android:layout_marginTop="390dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginStart="10dp"
          />
 
     <Button
@@ -81,7 +81,7 @@
         android:layout_width="175dp"
         android:layout_height="35dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="340dp"
         android:onClick="addEscorts"
         android:scaleX="1.3"
         android:scaleY="1.2"
@@ -92,8 +92,8 @@
 
     <Button
 
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/escorts"
         android:background="@drawable/user"
         android:backgroundTint="#FFFFFF"
@@ -109,46 +109,44 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView4"
-        android:textSize="20sp" />
+        android:id="@+id/measure"
+        android:textSize="14sp" />
 
     <TextView
         android:text="Escorts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView4"
+        android:layout_alignTop="@+id/measure"
         android:layout_alignEnd="@+id/escorts"
-        android:id="@+id/textView5"
-        android:textSize="20sp" />
+        android:id="@+id/escort"
+        android:textSize="14sp" />
 
     <TextView
         android:text="Alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
+        android:id="@+id/aler"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/alarPic"
-        android:layout_marginEnd="10dp"
-        android:textSize="20sp" />
+        android:layout_marginEnd="4dp"
+        android:textSize="14sp" />
 
     <Button
-
-        android:layout_width="77dp"
-        android:layout_height="89dp"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
         android:id="@+id/Measure"
         android:background="@drawable/m2"
         android:backgroundTint="#FFFFFF"
-        android:layout_above="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_above="@+id/measure"
+        android:layout_alignStart="@+id/measure" />
 
     <Button
-
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/alarPic"
         android:background="@drawable/alert122"
-        android:layout_marginStart="15dp"
-        android:layout_alignBottom="@+id/escorts"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="415dp"
         android:layout_toEndOf="@+id/imageViewEsc" />
 
 

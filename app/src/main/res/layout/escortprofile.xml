@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c3c3c3"
+    tools:context="com.example.samsung.mypic1.EscortProfile">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/logonabdi"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/escorts"
+        android:background="@drawable/user"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="26dp"
+        android:layout_alignBottom="@+id/Measure"
+        android:layout_toStartOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/alert122"
+        android:layout_marginEnd="35dp"
+        android:layout_alignTop="@+id/escorts"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/Measure"
+        android:layout_width="77dp"
+        android:layout_height="89dp"
+        android:background="@drawable/m2"
+        android:backgroundTint="#FFFFFF"
+        android:layout_above="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/escorts"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="Name"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/editText6"
+        android:layout_alignBottom="@+id/editText6"
+        android:layout_toStartOf="@+id/imageView6"
+        android:layout_marginEnd="10dp" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:layout_below="@+id/imageView6"
+        android:layout_alignEnd="@+id/textView13"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="30dp"
+        android:text="Phone"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView10"
+        android:layout_alignStart="@+id/editText6"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_marginBottom="21dp"
+        android:layout_toEndOf="@+id/imageView6"
+        app:srcCompat="@drawable/addpic" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:text="Escorts"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/escorts"
+        android:layout_marginBottom="17dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:text="Mesure"
+        android:textSize="25sp"
+        android:layout_below="@+id/Measure"
+        android:layout_alignStart="@+id/Measure" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:text="alert"
+        android:textSize="25sp"
+        android:layout_alignBaseline="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignStart="@+id/imageView5"
+        android:layout_marginStart="8dp" />
+
+</RelativeLayout>

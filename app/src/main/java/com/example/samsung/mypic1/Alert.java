@@ -22,11 +22,9 @@ public class Alert extends AppCompatActivity {
         setContentView(R.layout.alert);
         loc();
         try {
-            if (ActivityCompat.checkSelfPermission(this, mPermission)
-                    != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
 
-                ActivityCompat.requestPermissions(this, new String[]{mPermission},
-                        REQUEST_CODE_PERMISSION);
+                ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
                 loc();
 
             }

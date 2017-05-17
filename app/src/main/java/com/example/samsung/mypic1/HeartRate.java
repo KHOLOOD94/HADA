@@ -18,7 +18,7 @@ public class HeartRate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_heart_rate);
+        setContentView(R.layout.heartrate);
 
         heartRate = (TextView) findViewById(R.id.heartRate);
 
@@ -47,11 +47,11 @@ public class HeartRate extends AppCompatActivity {
                     singleton = Singleton.getInstance();
                     message = singleton.getLocation();
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+966545129728", null, message, null, null);
-                    Toast.makeText(getApplicationContext(), "SMS sent.", Toast.LENGTH_LONG).show();
+                    smsManager.sendTextMessage("+966545129728", null,"HELP\n"+ message, null, null);
+                    Toast.makeText(getApplicationContext(), "Message sent.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+                            "Message faild, please try later.", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
