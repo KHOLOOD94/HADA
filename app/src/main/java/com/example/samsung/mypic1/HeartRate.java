@@ -10,9 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class HeartRate extends AppCompatActivity {
-
+    private static final int REQUEST_CODE_PERMISSION = 0;
+    Singleton singleton;
     int abnormalRate = 1000;
     TextView heartRate;
+    String message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,7 @@ public class HeartRate extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 0);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, REQUEST_CODE_PERMISSION);
             }
         }
     }
@@ -40,10 +42,12 @@ public class HeartRate extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case 0: {
+            case REQUEST_CODE_PERMISSION: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    singleton = Singleton.getInstance();
+                    message = singleton.getLocation();
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+966545129728", null, "Shit happens", null, null);
+                    smsManager.sendTextMessage("+966545129728", null, message, null, null);
                     Toast.makeText(getApplicationContext(), "SMS sent.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(),

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class Alert extends AppCompatActivity {
 
+    Singleton singleton;
     TextView t;
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -36,6 +37,7 @@ public class Alert extends AppCompatActivity {
     }
 
     public void loc() {
+        singleton = Singleton.getInstance();
         t = (TextView) findViewById(R.id.LocationText);
         gps = new GPSTracker(Alert.this);
 
@@ -47,6 +49,7 @@ public class Alert extends AppCompatActivity {
 
             t.setText("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
+            singleton.setLocation(t.getText().toString());
 
         } else {
             // can't get location
