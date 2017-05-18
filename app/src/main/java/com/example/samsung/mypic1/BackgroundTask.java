@@ -159,7 +159,6 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         }
     }
 
-
     protected void urlConnection(String urlLink) throws Exception {
 
         url = new URL(urlLink);
