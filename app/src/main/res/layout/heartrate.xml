@@ -69,7 +69,8 @@ app:srcCompat="@drawable/d"
         android:backgroundTint="#FFFFFF"
         android:layout_alignBottom="@+id/Measure"
         android:layout_marginStart="17dp"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="14dp"
+        android:onClick="displayProfile"/>
 
 
     <TextView
@@ -116,6 +117,7 @@ app:srcCompat="@drawable/d"
         android:background="@drawable/alert122"
         android:layout_marginStart="270dp"
         android:layout_marginTop="415dp"
+        android:onClick="displayLocation"
         />
 
 

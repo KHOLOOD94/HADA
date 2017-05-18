@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.regex.Pattern;
 
 public class EscortProfile extends AppCompatActivity {
 
@@ -26,8 +27,8 @@ public class EscortProfile extends AppCompatActivity {
 
 class B extends AsyncTask<Void,Void,String> {
     private String json_string;
-    private String readPhoneNumber;
-    private String readName;
+   // private String readPhoneNumber;
+   // private String readName;
     private Singleton singleton;
     private Context con;
     private String url_string="http://kholood.heliohost.org/getPhoneNumber.php";
@@ -75,18 +76,25 @@ class B extends AsyncTask<Void,Void,String> {
         TextView name , phone;
         name = (TextView)((EscortProfile)con).findViewById(R.id.escortname);
         phone = (TextView)((EscortProfile)con).findViewById(R.id.phoneNumber);
-        readName = aVoid;
-        readPhoneNumber = aVoid;
-        String regx1 ="\"relative_name\":\"";
-        String regx2 = "\"relative_phone_no\":\"";
+       // readName = aVoid;
+       // readPhoneNumber = aVoid;
+       // String regx1 ="\"relative_name\":\"";
+       // String regx2 = "\"relative_phone_no\":\"";
+        //String n="";
+       // String [] s =  aVoid.split("\",\"");
+       // n = s[0];
+       // String [] ss = s[1].split("\"]]]");
+     //   String nameResult = splitNameAndPhone(readName,regx1);
+      //  phone.setText("0"+ss[0]);
+       // String [] nn = n.split(Pattern.quote("[[[\""));
+        name.setText(aVoid);
 
+     //   String [] s1 = readPhoneNumber.split(regx2);
+      //  String [] ss1 = s[0].split("\"");
 
-
-        String nameResult = splitNameAndPhone(readName,regx1);
-        name.setText(nameResult);
-        String phoneResult = splitNameAndPhone(readPhoneNumber,regx2);
-        phone.setText("0"+phoneResult);
-        singleton.setPhoneNumber(phone.getText().toString());
+        //String phoneResult = splitNameAndPhone(readPhoneNumber,regx2);
+       // phone.setText("0"+ss1[0]);
+      //  singleton.setPhoneNumber(phone.getText().toString());
     }
     protected String splitNameAndPhone(String obj,String regx){
         String result="";
