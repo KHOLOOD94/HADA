@@ -24,7 +24,7 @@ public class HeartRate extends AppCompatActivity {
 
         heartRate = (TextView) findViewById(R.id.heartRate);
 
-        heartRate.setText("10000");
+        heartRate.setText("100");
         int rate = Integer.parseInt(heartRate.getText().toString().trim());
         if( rate >= abnormalRate){
             sendSMSMessage();
