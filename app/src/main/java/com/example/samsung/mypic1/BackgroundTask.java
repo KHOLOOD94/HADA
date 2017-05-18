@@ -91,7 +91,7 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
 
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                 data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&"
-                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                        + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8") ;
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
