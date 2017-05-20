@@ -53,6 +53,7 @@ class B extends AsyncTask<Void,Void,String> {
     public B(Context context) {
 
         con = context;
+        singleton = Singleton.getInstance();
     }
 
     @Override
@@ -63,7 +64,7 @@ class B extends AsyncTask<Void,Void,String> {
             urlConnection(url_string);
 
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-            singleton = Singleton.getInstance();
+
             data = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(singleton.getId(), "UTF-8");
             bufferedWriter.write(data);
             bufferedWriter.flush();
@@ -105,7 +106,7 @@ class B extends AsyncTask<Void,Void,String> {
         n = s[0];
         String[] ss = s[1].split("\"]]]");
         phone.setText("0" + ss[0]);
-
+        singleton.setPhoneNumber(phone.getText().toString());
 
         String[] nn = n.split(Pattern.quote("[[[\""));
         name.setText(nn[1]);
