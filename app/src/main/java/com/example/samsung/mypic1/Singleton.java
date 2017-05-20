@@ -7,6 +7,7 @@ public class Singleton {
     private static Singleton instance;
     private String location;
     private String phone;
+    private String id;
     private Singleton(){
 
     }
@@ -31,5 +32,11 @@ public class Singleton {
     public String getPhone(){
         return phone;
     }
+     public void setId(String i){
+         id = i.trim();
+     }
 
+    public String getId() {
+        return id;
+    }
 }

@@ -33,6 +33,8 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
     private String email ;
     private String password ;
     private String phone;
+    private String id;
+    Singleton singleton;
 
 
     BackgroundTask(Context c) {
@@ -114,7 +116,7 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
             phone = voids[2];
 
                 urlConnection(relative_url);
-                os = httpURLConnection.getOutputStream();
+
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                 data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&"
                         + URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(phone, "UTF-8");
@@ -143,17 +145,24 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
+        String login= result;
+        String [] string = login.split("\t");
+        singleton = Singleton.getInstance();
+        singleton.setId(string[1].trim());
+
        Intent intent;
-      if(result.trim().equalsIgnoreCase("Login Success")){
+      if(string[0].trim().equalsIgnoreCase("Login Success")){
+          Toast.makeText(cont, string[0] , Toast.LENGTH_LONG).show();
             intent = new Intent(cont,HeartRate.class);
             cont.startActivity(intent);
         }
         if(result.trim().equalsIgnoreCase("Escort Added")){
+            Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
             intent = new Intent(cont,HeartRate.class);
             cont.startActivity(intent);
         }
         if(result.trim().equalsIgnoreCase("Register Success")){
+            Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
             intent = new Intent(cont,AddEscorts.class);
             cont.startActivity(intent);
         }

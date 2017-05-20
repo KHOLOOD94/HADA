@@ -5,13 +5,19 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.regex.Pattern;
 
 public class EscortProfile extends AppCompatActivity {
@@ -20,20 +26,32 @@ public class EscortProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.escortprofile);
+
         new B(this).execute();
+
 
     }
 }
 
 class B extends AsyncTask<Void,Void,String> {
-    private String json_string;
-   // private String readPhoneNumber;
-   // private String readName;
-    private Singleton singleton;
+
+
     private Context con;
     private String url_string="http://kholood.heliohost.org/getPhoneNumber.php";
+    private URL url;
+    private HttpURLConnection httpURLConnection;
+    private OutputStream os;
+    private BufferedWriter bufferedWriter;
+    private String data;
+    private InputStream is;
+    private BufferedReader bufferedReader;
+    private String id;
+    private Singleton singleton;
+    private String result = "";
+    private String line;
 
     public B(Context context) {
+
         con = context;
     }
 
@@ -42,28 +60,32 @@ class B extends AsyncTask<Void,Void,String> {
 
         try {
 
-            URL url = new URL(url_string);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            urlConnection(url_string);
 
-            StringBuilder stringBuilder = new StringBuilder();
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            singleton = Singleton.getInstance();
+            data = URLEncoder.encode("userID", "UTF-8") + "=" + URLEncoder.encode(singleton.getId(), "UTF-8");
+            bufferedWriter.write(data);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            os.close();
+            is = httpURLConnection.getInputStream();
+            bufferedReader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
 
-            while((json_string=bufferedReader.readLine())!=null){
-
-                stringBuilder.append(json_string+"\n");
-
+            if ((line = bufferedReader.readLine()) != null) {
+                result += line;
             }
-
             bufferedReader.close();
-            inputStream.close();
+            is.close();
             httpURLConnection.disconnect();
 
-            return stringBuilder.toString().trim();
+            return result;
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -72,35 +94,31 @@ class B extends AsyncTask<Void,Void,String> {
 
     @Override
     protected void onPostExecute(String aVoid) {
-        singleton = Singleton.getInstance();
-        TextView name , phone;
-        name = (TextView)((EscortProfile)con).findViewById(R.id.escortname);
-        phone = (TextView)((EscortProfile)con).findViewById(R.id.phoneNumber);
-       // readName = aVoid;
-       // readPhoneNumber = aVoid;
-       // String regx1 ="\"relative_name\":\"";
-       // String regx2 = "\"relative_phone_no\":\"";
-        //String n="";
-       // String [] s =  aVoid.split("\",\"");
-       // n = s[0];
-       // String [] ss = s[1].split("\"]]]");
-     //   String nameResult = splitNameAndPhone(readName,regx1);
-      //  phone.setText("0"+ss[0]);
-       // String [] nn = n.split(Pattern.quote("[[[\""));
-        name.setText(aVoid);
 
-     //   String [] s1 = readPhoneNumber.split(regx2);
-      //  String [] ss1 = s[0].split("\"");
+        TextView name, phone;
+        name = (TextView) ((EscortProfile) con).findViewById(R.id.escortname);
+        phone = (TextView) ((EscortProfile) con).findViewById(R.id.phoneNumber);
 
-        //String phoneResult = splitNameAndPhone(readPhoneNumber,regx2);
-       // phone.setText("0"+ss1[0]);
-      //  singleton.setPhoneNumber(phone.getText().toString());
+
+        String n = "";
+        String[] s = aVoid.split("\",\"");
+        n = s[0];
+        String[] ss = s[1].split("\"]]]");
+        phone.setText("0" + ss[0]);
+
+
+        String[] nn = n.split(Pattern.quote("[[[\""));
+        name.setText(nn[1]);
+
+
     }
-    protected String splitNameAndPhone(String obj,String regx){
-        String result="";
-        String [] s =  obj.split(regx);
-        String [] ss = s[1].split("\"");
-        result = ss[0];
-        return result;
+    private void urlConnection(String urlLink) throws Exception {
+
+        url = new URL(urlLink);
+        httpURLConnection = (HttpURLConnection) url.openConnection();
+        httpURLConnection.setRequestMethod("POST");
+        httpURLConnection.setDoOutput(true);
+        os = httpURLConnection.getOutputStream();
+
     }
 }
