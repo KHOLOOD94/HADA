@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Alert extends AppCompatActivity {
 
@@ -13,7 +14,6 @@ public class Alert extends AppCompatActivity {
     TextView t;
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
-    // GPSTracker class
     GPSTracker gps;
 
     @Override
@@ -26,6 +26,7 @@ public class Alert extends AppCompatActivity {
 
                 ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
                 loc();
+                new B(this).execute();
 
             }
         } catch (Exception e) {
@@ -47,7 +48,9 @@ public class Alert extends AppCompatActivity {
 
             t.setText("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
-            singleton.setLocation(t.getText().toString());
+            singleton.setLocation(" Lat: "
+                    + latitude + "\nLong: " + longitude);
+
 
         } else {
             // can't get location

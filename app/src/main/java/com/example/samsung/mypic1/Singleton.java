@@ -1,15 +1,23 @@
 package com.example.samsung.mypic1;
 
 
+import android.content.Context;
+
 
 public class Singleton {
 
     private static Singleton instance;
     private String location;
-    private String phone;
+    private String phoneNumber;
     private String id;
+    private Context con;
+
     private Singleton(){
 
+    }
+
+    public void setContext(Context context){
+        con = con;
     }
 
     public static Singleton getInstance(){
@@ -27,10 +35,11 @@ public class Singleton {
         return location;
     }
     public void setPhoneNumber(String p){
-        phone = p;
+
+        phoneNumber  = p;
     }
     public String getPhone(){
-        return phone;
+        return phoneNumber;
     }
      public void setId(String i){
          id = i.trim();

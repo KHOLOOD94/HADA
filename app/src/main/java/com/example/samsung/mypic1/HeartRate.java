@@ -17,6 +17,8 @@ public class HeartRate extends AppCompatActivity {
     int abnormalRate = 1000;
     TextView heartRate;
     String message;
+    String phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class HeartRate extends AppCompatActivity {
 
         heartRate = (TextView) findViewById(R.id.heartRate);
 
-        heartRate.setText("100");
+        heartRate.setText("10000");
         int rate = Integer.parseInt(heartRate.getText().toString().trim());
         if( rate >= abnormalRate){
             sendSMSMessage();
@@ -32,6 +34,7 @@ public class HeartRate extends AppCompatActivity {
 
     }
     protected void sendSMSMessage() {
+
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
@@ -48,12 +51,12 @@ public class HeartRate extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     singleton = Singleton.getInstance();
                     message = singleton.getLocation();
+                    phone = singleton.getPhone();
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage("+966545129728", null,"HELP\n"+ message, null, null);
+                    smsManager.sendTextMessage(phone.trim(), null,"HELP\n"+ message, null, null);
                     Toast.makeText(getApplicationContext(), "Message sent.", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Message faild, please try later.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Message faild, please try later.", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -68,4 +71,5 @@ public class HeartRate extends AppCompatActivity {
         Intent intent = new Intent(this,Alert.class);
         startActivity(intent);
     }
+
 }

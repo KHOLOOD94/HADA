@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -15,6 +16,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 class BackgroundTask extends AsyncTask<String ,Void , String> {
 
@@ -33,12 +37,12 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
     private String email ;
     private String password ;
     private String phone;
-    private String id;
     Singleton singleton;
 
 
     BackgroundTask(Context c) {
         this.cont = c;
+
     }
 
 
@@ -153,8 +157,13 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
        Intent intent;
       if(string[0].trim().equalsIgnoreCase("Login Success")){
           Toast.makeText(cont, string[0] , Toast.LENGTH_LONG).show();
-            intent = new Intent(cont,HeartRate.class);
-            cont.startActivity(intent);
+
+         // start();
+
+          intent = new Intent(cont,HeartRate.class);
+          cont.startActivity(intent);
+          Toast.makeText(cont, singleton.getLocation() , Toast.LENGTH_LONG).show();
+          Toast.makeText(cont, singleton.getPhone() , Toast.LENGTH_LONG).show();
         }
         if(result.trim().equalsIgnoreCase("Escort Added")){
             Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
@@ -175,6 +184,19 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         os = httpURLConnection.getOutputStream();
+
+    }
+    protected void start(){
+
+        Intent i1 = new Intent(cont,Alert.class);
+        Intent i2 = new Intent(cont,EscortProfile.class);
+        Intent i3 = new Intent(cont,HeartRate.class);
+
+
+        cont.startActivity(i1);
+        cont.startActivity(i2);
+        cont.startActivity(i3);
+
 
     }
 }

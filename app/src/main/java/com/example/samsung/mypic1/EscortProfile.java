@@ -2,8 +2,8 @@ package com.example.samsung.mypic1;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +27,7 @@ public class EscortProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.escortprofile);
 
-        new B(this).execute();
+                new B(this).execute();
 
 
     }
@@ -105,8 +105,8 @@ class B extends AsyncTask<Void,Void,String> {
         String[] s = aVoid.split("\",\"");
         n = s[0];
         String[] ss = s[1].split("\"]]]");
-        phone.setText("0" + ss[0]);
-        singleton.setPhoneNumber(phone.getText().toString());
+        phone.setText("+966" + ss[0]);
+        singleton.setPhoneNumber("+966" + ss[0]);
 
         String[] nn = n.split(Pattern.quote("[[[\""));
         name.setText(nn[1]);
