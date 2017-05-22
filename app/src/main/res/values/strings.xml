@@ -6,6 +6,7 @@
     <string name="loginPic">Login Image</string>
     <string name="enter_username">Enter username</string>
     <string name="password">Password</string>
-    <string name="login_">Login</string>
+    <string name="next_">Next</string>
     <string name="register_picture">Register Picture</string>
+    <string name="Login">Login</string>
 </resources>

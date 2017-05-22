@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:layout_marginTop="239dp"
         android:hint=" Escort Name..."
         android:layout_toEndOf="@+id/name"
@@ -65,70 +65,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:layout_marginTop="40dp"
         android:hint=" Escort Phone Number..."
         android:layout_toEndOf="@+id/phone"
         android:layout_below="@id/escortname"/>
 
-
     <Button
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/escorts"
-        android:background="@drawable/user"
-        android:backgroundTint="#FFFFFF"
-        android:layout_alignBottom="@+id/Measure"
-        android:layout_marginStart="17dp"
-        android:layout_marginBottom="14dp" />
-
-
-    <TextView
-        android:text="Measure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/LoginButton"
+        android:layout_width="165dp"
+        android:layout_height="37dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/measure"
+        android:layout_marginTop="380dp"
+        android:onClick="displayHearRate"
+        android:scaleX="1.4"
+        android:scaleY="1.5"
+        android:text="@string/next_"
+        android:textColor="#d22222"
         android:textSize="14sp" />
 
-    <TextView
-        android:text="Escorts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/measure"
-        android:layout_alignEnd="@+id/escorts"
-        android:id="@+id/escort"
-        android:textSize="14sp" />
-
-    <TextView
-        android:text="Alert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/aler"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/alarPic"
-        android:layout_marginEnd="4dp"
-        android:textSize="14sp" />
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="60dp"
-        android:id="@+id/Measure"
-        android:background="@drawable/m2"
-        android:backgroundTint="#FFFFFF"
-        android:layout_above="@+id/measure"
-        android:layout_alignStart="@+id/measure"
-        android:onClick="displayHearRate"/>
-
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/alarPic"
-        android:background="@drawable/alert122"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="445dp"
-        android:layout_toEndOf="@+id/imageViewEsc" />
 
 </RelativeLayout>

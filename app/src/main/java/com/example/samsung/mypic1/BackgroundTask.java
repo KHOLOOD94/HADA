@@ -163,7 +163,7 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         }
         if(result.trim().equalsIgnoreCase("Escort Added")){
             Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
-            intent = new Intent(cont,HeartRate.class);
+            intent = new Intent(cont,Alert.class);
             cont.startActivity(intent);
         }
         if(result.trim().equalsIgnoreCase("Register Success")){
