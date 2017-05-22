@@ -1,10 +1,12 @@
 package com.example.samsung.mypic1;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,8 +50,9 @@ public class Alert extends AppCompatActivity {
 
             t.setText("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
-            singleton.setLocation(" Lat: "
+            singleton.setLocation("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
+            Toast.makeText(this,singleton.getLocation(),Toast.LENGTH_LONG).show();
 
 
         } else {
@@ -59,6 +62,10 @@ public class Alert extends AppCompatActivity {
             gps.showSettingsAlert();
         }
 
+    }
+    public void displayProfile(View view){
+        Intent intent = new Intent(this,EscortProfile.class);
+        startActivity(intent);
     }
 }
 

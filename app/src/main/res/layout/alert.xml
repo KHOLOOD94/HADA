@@ -76,7 +76,8 @@
         android:backgroundTint="#FFFFFF"
         android:layout_alignBottom="@+id/Measure"
         android:layout_marginStart="17dp"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="14dp"
+        android:onClick="displayProfile"/>
 
 
     <TextView
@@ -114,7 +115,8 @@
         android:background="@drawable/m2"
         android:backgroundTint="#FFFFFF"
         android:layout_above="@+id/measure"
-        android:layout_alignStart="@+id/measure" />
+        android:layout_alignStart="@+id/measure"
+        />
 
     <Button
         android:layout_width="40dp"

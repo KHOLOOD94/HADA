@@ -1,9 +1,11 @@
 package com.example.samsung.mypic1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,10 @@ public class EscortProfile extends AppCompatActivity {
                 new B(this).execute();
 
 
+    }
+    public void displayHearRate(View view){
+        Intent intent = new Intent(this,HeartRate.class);
+        startActivity(intent);
     }
 }
 
@@ -110,6 +116,7 @@ class B extends AsyncTask<Void,Void,String> {
 
         String[] nn = n.split(Pattern.quote("[[[\""));
         name.setText(nn[1]);
+        Toast.makeText(con, singleton.getPhoneNumber(),Toast.LENGTH_LONG).show();
 
 
     }

@@ -16,10 +16,6 @@ public class Singleton {
 
     }
 
-    public void setContext(Context context){
-        con = con;
-    }
-
     public static Singleton getInstance(){
 
         if(instance == null){
@@ -38,7 +34,7 @@ public class Singleton {
 
         phoneNumber  = p;
     }
-    public String getPhone(){
+    public String getPhoneNumber(){
         return phoneNumber;
     }
      public void setId(String i){

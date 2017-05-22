@@ -119,7 +119,8 @@
         android:background="@drawable/m2"
         android:backgroundTint="#FFFFFF"
         android:layout_above="@+id/measure"
-        android:layout_alignStart="@+id/measure" />
+        android:layout_alignStart="@+id/measure"
+        android:onClick="displayHearRate"/>
 
     <Button
         android:layout_width="40dp"

@@ -158,12 +158,8 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
       if(string[0].trim().equalsIgnoreCase("Login Success")){
           Toast.makeText(cont, string[0] , Toast.LENGTH_LONG).show();
 
-         // start();
-
-          intent = new Intent(cont,HeartRate.class);
+          intent = new Intent(cont,Alert.class);
           cont.startActivity(intent);
-          Toast.makeText(cont, singleton.getLocation() , Toast.LENGTH_LONG).show();
-          Toast.makeText(cont, singleton.getPhone() , Toast.LENGTH_LONG).show();
         }
         if(result.trim().equalsIgnoreCase("Escort Added")){
             Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
@@ -184,19 +180,6 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         os = httpURLConnection.getOutputStream();
-
-    }
-    protected void start(){
-
-        Intent i1 = new Intent(cont,Alert.class);
-        Intent i2 = new Intent(cont,EscortProfile.class);
-        Intent i3 = new Intent(cont,HeartRate.class);
-
-
-        cont.startActivity(i1);
-        cont.startActivity(i2);
-        cont.startActivity(i3);
-
 
     }
 }
