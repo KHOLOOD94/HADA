@@ -28,6 +28,10 @@ public class FitbitAsyncTasks extends AsyncTask<String, Void, String>
     private HttpURLConnection conn;
     private ProgressDialog progressDialog;
     private Singleton singleton;
+    int max = 100;
+    int min = 50;
+    int dan = 1000;
+    int rate;
     public FitbitAsyncTasks(Context context)
     {
         this.context = context;
@@ -83,6 +87,18 @@ public class FitbitAsyncTasks extends AsyncTask<String, Void, String>
                             TextView t = (TextView)((HeartRate)context).findViewById(R.id.heartRate);
                             t.setText(HRValue);
                             singleton.setHeartRate(t.getText().toString());
+                            Toast.makeText(context, singleton.getHeartRate(), Toast.LENGTH_LONG).show();
+                            String hearRate = singleton.getHeartRate();
+
+                            if (!hearRate.isEmpty()) {
+                                //rate = 5000;
+                                rate = Integer.parseInt(hearRate);
+                                Toast.makeText(context,"if"+ rate, Toast.LENGTH_LONG).show();
+                                if(rate < min || rate > max) {
+                                    ((HeartRate)context).sendSMSMessage();
+                                }
+
+                            }
                         }
                     }
                 }

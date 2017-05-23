@@ -13,34 +13,21 @@ import android.widget.Toast;
 
 public class HeartRate extends AppCompatActivity {
 
-    int max = 100;
-    int min = 50;
-    int dan = 1000;
     String message;
     String phone;
     Singleton singleton;
-    int rate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.heartrate);
-        singleton = Singleton.getInstance();
+
         new FitbitAsyncTasks(HeartRate.this).execute();
 
-        String hearRate = singleton.getHeartRate();
-
-
-        if (!hearRate.isEmpty()) {
-            rate = Integer.parseInt(hearRate);
-            if(rate < min || rate > max) {
-                sendSMSMessage();
-            }
-
-        }
 
     }
 
-   protected void sendSMSMessage() {
+    protected void sendSMSMessage() {
 
       //  Toast.makeText(getApplicationContext(), "inside sendSMSMessage().", Toast.LENGTH_LONG).show();
 
