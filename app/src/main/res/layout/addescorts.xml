@@ -26,7 +26,7 @@
         android:contentDescription="add escorts pic "
         android:layout_width="150dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/escorts"
+        app:srcCompat="@drawable/addesc"
         android:id="@+id/imageViewEsc"
         android:layout_alignTop="@+id/imageViewLogo"
         android:layout_centerHorizontal="true"
