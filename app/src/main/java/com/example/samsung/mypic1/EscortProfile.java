@@ -116,7 +116,7 @@ class B extends AsyncTask<Void,Void,String> {
 
         String[] nn = n.split(Pattern.quote("[[[\""));
         name.setText(nn[1]);
-        Toast.makeText(con, singleton.getPhoneNumber(),Toast.LENGTH_LONG).show();
+      //  Toast.makeText(con, singleton.getPhoneNumber(),Toast.LENGTH_LONG).show();
 
 
     }

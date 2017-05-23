@@ -88,66 +88,7 @@
         android:text=" Add Escort "
         android:textColor="#d22222"
         android:textSize="12sp" />
-
-
-    <Button
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/escorts"
-        android:background="@drawable/user"
-        android:backgroundTint="#FFFFFF"
-        android:layout_alignBottom="@+id/Measure"
-        android:layout_toStartOf="@+id/imageViewEsc"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="14dp" />
-
-
-    <TextView
-        android:text="Measure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/measure"
-        android:textSize="14sp" />
-
-    <TextView
-        android:text="Escorts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/measure"
-        android:layout_alignEnd="@+id/escorts"
-        android:id="@+id/escort"
-        android:textSize="14sp" />
-
-    <TextView
-        android:text="Alert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/aler"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/alarPic"
-        android:layout_marginEnd="4dp"
-        android:textSize="14sp" />
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="60dp"
-        android:id="@+id/Measure"
-        android:background="@drawable/m2"
-        android:backgroundTint="#FFFFFF"
-        android:layout_above="@+id/measure"
-        android:layout_alignStart="@+id/measure" />
-
-    <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/alarPic"
-        android:background="@drawable/alert122"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="415dp"
-        android:layout_toEndOf="@+id/imageViewEsc" />
+    
 
 
 </RelativeLayout>

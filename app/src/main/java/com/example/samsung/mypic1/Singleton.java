@@ -11,7 +11,7 @@ public class Singleton {
     private String phoneNumber;
     private String id;
     private Context con;
-
+    private String heartRate;
     private Singleton(){
 
     }
@@ -43,5 +43,11 @@ public class Singleton {
 
     public String getId() {
         return id;
+    }
+    public void setHeartRate(String heart){
+        heartRate = heart.trim();
+    }
+    public String getHeartRate(){
+        return heartRate;
     }
 }

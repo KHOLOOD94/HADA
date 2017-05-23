@@ -52,7 +52,7 @@ public class Alert extends AppCompatActivity {
                     + latitude + "\nLong: " + longitude);
             singleton.setLocation("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
-            Toast.makeText(this,singleton.getLocation(),Toast.LENGTH_LONG).show();
+          //  Toast.makeText(this,singleton.getLocation(),Toast.LENGTH_LONG).show();
 
 
         } else {
