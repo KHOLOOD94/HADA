@@ -3,6 +3,7 @@ package com.example.samsung.mypic1;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,7 @@ public class HeartRate extends AppCompatActivity {
     String message;
     String phone;
     Singleton singleton;
-
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,10 @@ public class HeartRate extends AppCompatActivity {
 
     }
 
+    protected void Alarm(){
+       mediaPlayer = MediaPlayer.create(this,R.raw.start);
+        mediaPlayer.start();
+        }
     protected void sendSMSMessage() {
 
       //  Toast.makeText(getApplicationContext(), "inside sendSMSMessage().", Toast.LENGTH_LONG).show();

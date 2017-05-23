@@ -2,6 +2,7 @@ package com.example.samsung.mypic1;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.widget.TextView;
@@ -95,6 +96,7 @@ public class FitbitAsyncTasks extends AsyncTask<String, Void, String>
                                 rate = Integer.parseInt(hearRate);
                                 Toast.makeText(context,"if"+ rate, Toast.LENGTH_LONG).show();
                                 if(rate < min || rate > max) {
+                                    ((HeartRate)context).Alarm();
                                     ((HeartRate)context).sendSMSMessage();
                                 }
 
