@@ -22,7 +22,7 @@ public class HeartRate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.heartrate);
 
-       new FitbitAsyncTasks(HeartRate.this).execute();
+        new FitbitAsyncTasks(HeartRate.this).execute();
 
     }
 

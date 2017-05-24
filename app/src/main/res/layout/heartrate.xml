@@ -112,12 +112,12 @@ app:srcCompat="@drawable/d"
         />
 
     <Button
-        android:layout_width="290dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
         android:id="@+id/alarPic"
-        android:background="@drawable/qns"
+        android:background="@drawable/locationk"
         android:layout_marginStart="250dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="410dp"
         android:onClick="displayLocation"
       />
 
