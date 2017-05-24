@@ -153,10 +153,6 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
 
     @Override
     protected void onPostExecute(String result) {
-        /*String login= result;
-        String [] string = login.split("\t");
-        singleton = Singleton.getInstance();
-        singleton.setId(string[1].trim());*/
 
        Intent intent;
       if(result.equalsIgnoreCase("Login Success")){

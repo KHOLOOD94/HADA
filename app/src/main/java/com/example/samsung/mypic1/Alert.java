@@ -29,7 +29,6 @@ public class Alert extends AppCompatActivity {
 
                 ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
                 loc();
-              //  new B(this).execute();
 
             }
         } catch (Exception e) {
@@ -53,7 +52,6 @@ public class Alert extends AppCompatActivity {
                     + latitude + "\nLong: " + longitude);
             singleton.setLocation("My Location is - \nLat: "
                     + latitude + "\nLong: " + longitude);
-          //  Toast.makeText(this,singleton.getLocation(),Toast.LENGTH_LONG).show();
 
 
         } else {

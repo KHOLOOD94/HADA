@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -51,7 +49,6 @@ class B extends AsyncTask<Void,Void,String> {
     private String data;
     private InputStream is;
     private BufferedReader bufferedReader;
-    private String id;
     private Singleton singleton;
     private String result = "";
     private String line;
@@ -116,7 +113,6 @@ class B extends AsyncTask<Void,Void,String> {
 
         String[] nn = n.split(Pattern.quote("[[[\""));
         name.setText(nn[1]);
-      //  Toast.makeText(con, singleton.getPhoneNumber(),Toast.LENGTH_LONG).show();
 
 
     }
