@@ -38,7 +38,7 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
     private String password ;
     private String phone;
     Singleton singleton;
-
+    String isLogin;
 
     BackgroundTask(Context c) {
         this.cont = c;
@@ -81,6 +81,9 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 if ((line = bufferedReader.readLine()) != null) {
                     result += line;
                 }
+
+
+
                 bufferedReader.close();
                 is.close();
                 httpURLConnection.disconnect();
@@ -108,10 +111,11 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
                 if ((line = bufferedReader.readLine()) != null) {
                     result += line;
                 }
+                isLogin = getLogStat(result);
                 bufferedReader.close();
                 is.close();
                 httpURLConnection.disconnect();
-                return result.trim();
+                return isLogin.trim();
         }
 
         if (method.equalsIgnoreCase("addEscorts".trim())) {
@@ -149,24 +153,24 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
 
     @Override
     protected void onPostExecute(String result) {
-        String login= result;
+        /*String login= result;
         String [] string = login.split("\t");
         singleton = Singleton.getInstance();
-        singleton.setId(string[1].trim());
+        singleton.setId(string[1].trim());*/
 
        Intent intent;
-      if(string[0].trim().equalsIgnoreCase("Login Success")){
-          Toast.makeText(cont, string[0] , Toast.LENGTH_LONG).show();
+      if(result.equalsIgnoreCase("Login Success")){
+          Toast.makeText(cont, result , Toast.LENGTH_LONG).show();
 
           intent = new Intent(cont,Alert.class);
           cont.startActivity(intent);
         }
-        if(result.trim().equalsIgnoreCase("Escort Added")){
+        if(result.equalsIgnoreCase("Escort Added")){
             Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
-            intent = new Intent(cont,Alert.class);
+            intent = new Intent(cont,Login.class);
             cont.startActivity(intent);
         }
-        if(result.trim().equalsIgnoreCase("Register Success")){
+        if(result.equalsIgnoreCase("Register Success")){
             Toast.makeText(cont, result, Toast.LENGTH_LONG).show();
             intent = new Intent(cont,AddEscorts.class);
             cont.startActivity(intent);
@@ -181,5 +185,13 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
         httpURLConnection.setDoOutput(true);
         os = httpURLConnection.getOutputStream();
 
+    }
+    protected String getLogStat(String result){
+        String login= result;
+        String [] string = login.split("\t");
+        singleton = Singleton.getInstance();
+        singleton.setId(string[1].trim());
+
+        return string[0];
     }
 }

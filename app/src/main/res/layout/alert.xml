@@ -24,7 +24,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/audio"
+        app:srcCompat="@drawable/locationn"
         android:id="@+id/alarmPic"
         android:contentDescription="Alert"
         android:layout_below="@+id/imageViewLogo"

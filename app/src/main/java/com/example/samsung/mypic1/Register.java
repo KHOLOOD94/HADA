@@ -11,7 +11,10 @@ import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
-    EditText e_name,e_email,e_password,e_confPassword;
+    EditText e_name;
+    EditText e_email;
+    EditText e_password;
+    EditText e_confPassword;
     String name,email,password,confPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

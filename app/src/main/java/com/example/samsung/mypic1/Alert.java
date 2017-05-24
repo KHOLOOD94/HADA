@@ -22,13 +22,14 @@ public class Alert extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alert);
+        t = (TextView) findViewById(R.id.LocationText);
         loc();
         try {
             if (ActivityCompat.checkSelfPermission(this, mPermission) != PackageManager.PERMISSION_GRANTED) {
 
                 ActivityCompat.requestPermissions(this, new String[]{mPermission}, REQUEST_CODE_PERMISSION);
                 loc();
-                new B(this).execute();
+              //  new B(this).execute();
 
             }
         } catch (Exception e) {
@@ -39,7 +40,7 @@ public class Alert extends AppCompatActivity {
 
     public void loc() {
         singleton = Singleton.getInstance();
-        t = (TextView) findViewById(R.id.LocationText);
+
         gps = new GPSTracker(Alert.this);
 
         // check if GPS enabled

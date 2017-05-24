@@ -31,14 +31,24 @@
         android:layout_alignTop="@+id/imageViewLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp" />
-
+    <TextView
+        android:text="Enter your emergency contact"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:scaleX="2.6"
+        android:scaleY="1.6"
+        android:id="@+id/Notifing"
+        android:textSize="9sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="116dp"/>
     <ImageView
         android:contentDescription="person picture"
         android:layout_width="40dp"
         android:layout_height="35dp"
         app:srcCompat="@drawable/person"
         android:id="@+id/imageViewUser"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="290dp"
         android:layout_marginStart="10dp"
         />
 
@@ -50,7 +60,7 @@
         android:ems="10"
         android:hint=" Enter name"
         android:id="@+id/editTextName"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="290dp"
         android:layout_centerHorizontal="true"/>
 
 
@@ -63,7 +73,7 @@
         android:ems="10"
         android:id="@+id/editTextPhone"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="290dp" />
+        android:layout_marginTop="340dp" />
 
 
     <ImageView
@@ -72,16 +82,16 @@
         android:layout_height="35dp"
         app:srcCompat="@drawable/mobilepic"
         android:id="@+id/imageViewPhone"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="340dp"
         android:layout_marginStart="10dp"
          />
 
     <Button
         android:id="@+id/buttonAddEscorts"
-        android:layout_width="175dp"
-        android:layout_height="35dp"
+        android:layout_width="165dp"
+        android:layout_height="37dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="390dp"
         android:onClick="addEscorts"
         android:scaleX="1.3"
         android:scaleY="1.2"

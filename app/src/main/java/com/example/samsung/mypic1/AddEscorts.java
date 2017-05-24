@@ -7,7 +7,8 @@ import android.widget.EditText;
 
 public class AddEscorts extends AppCompatActivity {
 
-    EditText esc_name , esc_phone;
+    EditText esc_name;
+    EditText esc_phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
