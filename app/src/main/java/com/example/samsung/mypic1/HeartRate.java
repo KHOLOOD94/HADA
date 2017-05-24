@@ -66,7 +66,11 @@ public class HeartRate extends AppCompatActivity {
     }
 
     public void displayLocation(View view) {
-        Intent intent = new Intent(this, Alert.class);
+        Intent intent = new Intent(this, Location.class);
+        startActivity(intent);
+    }
+    public void openHeartRate(View view){
+        Intent intent = new Intent(this, HeartRate.class);
         startActivity(intent);
     }
 

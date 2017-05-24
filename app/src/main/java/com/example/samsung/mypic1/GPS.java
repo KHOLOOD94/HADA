@@ -13,7 +13,7 @@ import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
-public class GPSTracker extends Service implements LocationListener {
+public class GPS extends Service implements LocationListener {
 
     private final Context mContext;
 
@@ -39,7 +39,7 @@ public class GPSTracker extends Service implements LocationListener {
     // Declaring a Location Manager
     protected LocationManager locationManager;
 
-    public GPSTracker(Context context) {
+    public GPS(Context context) {
         this.mContext = context;
         getLocation();
     }
@@ -106,7 +106,7 @@ public class GPSTracker extends Service implements LocationListener {
 
     public void stopUsingGPS(){
         if(locationManager != null){
-            locationManager.removeUpdates(GPSTracker.this);
+            locationManager.removeUpdates(GPS.this);
         }
     }
 
@@ -174,7 +174,7 @@ public class GPSTracker extends Service implements LocationListener {
             }
         });
 
-        // Showing Alert Message
+        // Showing Location Message
         alertDialog.show();
     }
 

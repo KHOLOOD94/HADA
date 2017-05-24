@@ -8,15 +8,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class Alert extends AppCompatActivity {
+public class Location extends AppCompatActivity {
 
     Singleton singleton;
     TextView t;
     private static final int REQUEST_CODE_PERMISSION = 2;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
-    GPSTracker gps;
+    GPS gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class Alert extends AppCompatActivity {
     public void loc() {
         singleton = Singleton.getInstance();
 
-        gps = new GPSTracker(Alert.this);
+        gps = new GPS(Location.this);
 
         // check if GPS enabled
         if (gps.canGetLocation()) {

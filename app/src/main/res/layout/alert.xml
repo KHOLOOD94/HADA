@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#c3c3c3"
-    tools:context="com.example.samsung.mypic1.Alert">
+    tools:context="com.example.samsung.mypic1.Location">
 
     <ImageView
         android:contentDescription="@string/logo"

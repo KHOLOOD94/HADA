@@ -16,8 +16,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 class BackgroundTask extends AsyncTask<String ,Void , String> {
@@ -158,7 +156,7 @@ class BackgroundTask extends AsyncTask<String ,Void , String> {
       if(result.equalsIgnoreCase("Login Success")){
           Toast.makeText(cont, result , Toast.LENGTH_LONG).show();
 
-          intent = new Intent(cont,Alert.class);
+          intent = new Intent(cont,Location.class);
           cont.startActivity(intent);
         }
         if(result.equalsIgnoreCase("Escort Added")){
